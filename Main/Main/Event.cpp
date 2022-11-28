@@ -1,7 +1,5 @@
 #include "Events.h"
 #include <string>
-
-
 using namespace std;
 Events::Events() {
 	this->name = nullptr;
@@ -15,6 +13,7 @@ Events::Events(char* name, time_t dateTime) {
 	this->dateTime = dateTime;
 
 }
+
 time_t Events::getEventTime()
 {
 
@@ -22,9 +21,9 @@ time_t Events::getEventTime()
 
 }
 
-void main() {
+int main() {
 
 
 
-
+	return 0;
 }

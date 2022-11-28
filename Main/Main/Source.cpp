@@ -1,7 +1,6 @@
 #include <iostream>
-#include "Event.h"
-void main() {
-	Event:
+#include "Events.h"
+int main() {
 
-
+	return 0;
 }
