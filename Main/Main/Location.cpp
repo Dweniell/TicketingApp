@@ -1,16 +1,14 @@
 #include "Location.h"
 #include<string>
-Location::Location():nrSeats(1){
+Location::Location() {
 	this->LocName = nullptr;
-	this->nrRows=1;
-	this->normal_seats = 1;
-	this->vip_seats = 1;
+	this->normal_seats = NULL;
+	this->vip_seats = NULL;
 
 }
-Location::Location(char* name, int seats, int rows, int normal, int vip) :nrSeats(seats){
+Location::Location(char* name, int normal, int vip){
 	this->LocName = new char[strlen(name) + 1];
 	strcpy_s(this->LocName, strlen(name) + 1, name);
-	this->nrRows = rows;
 	this->normal_seats = normal;
 	this->vip_seats = vip;
 
@@ -23,9 +21,6 @@ int Location::getnormalSeats() {
 }
 int Location::getvipSeats() {
 	return this->vip_seats;
-}
-const int Location::getNrSeats() {
-	return this->nrSeats;
 }
 char* Location::getName() {
 	return this->LocName;
@@ -54,10 +49,7 @@ int Location::availableSeats() {
 
 void Location::Purchaseseats(int seats,char* type) {
 	
-	if (seats > this->nrSeats || seats > availableSeats()) {
-		//implement error later
-		
-	}
+
 	
 	if (strcmp(type, "normal")==0 || strcmp(type, "NORMAL")==0) {
 
