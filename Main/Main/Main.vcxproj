@@ -135,7 +135,7 @@
     <ClCompile Include="Ticket.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Events.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Seat.h" />

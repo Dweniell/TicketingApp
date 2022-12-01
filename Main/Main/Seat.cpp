@@ -1,8 +1,9 @@
 #include "Seat.h"
+#include<iostream>
 
 Seat::Seat() {
 	this->seat_number=0;
-	this->seat_availability = 1;
+	this->seat_availability = 0;
 
 }
 Seat::Seat(int number,int avb) {
@@ -21,10 +22,29 @@ int Seat::getSeatAvb() {
 
 }
 
-
-
-
-int main() {
-
-	return 0;
+void Seat::setSeatAvb(int avb)
+{
+	this->seat_availability = avb;
 }
+
+void Seat::setSeatnumber(int number)
+{
+	this->seat_number = number;
+}
+
+
+
+
+
+Seat Seat::operator=(Seat const& s) {
+	Seat a;
+	a.seat_number = s.seat_number;
+	a.seat_availability = s.seat_availability;
+	return a;
+};
+
+
+
+
+
+

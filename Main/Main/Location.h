@@ -1,20 +1,19 @@
 #pragma once
+#include "Room.h"
 class Location {
 private:
 	char* LocName;
-	int nrRows;
-	int normal_seats;
-	int vip_seats;
-	
+	int nrRooms;
+	int nrVipRooms;
+	Room** rooms;
+
 public:
 	
 	Location();
-	Location(char* name, int normal, int vip);
+	Location(char* name,int Rooms,int viprooms,Room*roomy);
 	
 //getters
-	int getnormalSeats();
-	int getvipSeats();
-	const int getNrSeats();
+	
 	char* getName();
 /////////
 //setters
@@ -24,5 +23,8 @@ public:
 ////////
 	int availableSeats();
 	void Purchaseseats(int seats, char* type);
-	~Location(); //destructor
+
+
+
+
 };

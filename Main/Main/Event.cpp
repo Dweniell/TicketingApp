@@ -1,29 +1,82 @@
-#include "Events.h"
+#include "Event.h"
 #include <string>
 using namespace std;
-Events::Events() {
-	this->name = nullptr;
-	this->dateTime = time(NULL);
+Event::Event() {
+	name =nullptr;
+	month = 1;
+	day = 1;
+	hour = 1;
+	minute = 1;
 
-};
-Events::Events(char* name, time_t dateTime) {
-	this->name = new char[strlen(name) + 1];
-	strcpy_s(this->name, strlen(name) + 1, name);
-
-	this->dateTime = dateTime;
 
 }
 
-time_t Events::getEventTime()
+Event::Event(char* name, int month, int day, int hour, int minute)
 {
-
-	return time_t(this->dateTime);
+	this->name = new char [strlen(name) + 1];
+	strcpy_s(this->name, strlen(name), name);
+	this->month = month;
+	this->day = day;
+	this->hour = hour;
+	this->minute = minute;
 
 }
 
-int main() {
+char* Event::getEventname() {
 
-
-
-	return 0;
+	return this->name;
 }
+
+int Event::getEventmonth()
+{
+	return this->month;
+}
+
+int Event::getEventday()
+{
+	return this->day;
+}
+
+int Event::getEventhour()
+{
+	return this->hour;
+}
+
+int Event::getEventminute()
+{
+	return this->minute;
+}
+
+
+void Event::setEventname(char* Name)
+{
+	this->name = Name;
+
+
+}
+
+void Event::setEventmonth(int month)
+{
+	this->month = month;
+
+
+
+}
+
+void Event::setEventday(int Day)
+{
+	this->day = Day;
+
+}
+
+void Event::setEventhour(int Hour)
+{
+	this->hour = Hour;
+}
+
+void Event::setEventminute(int Minute)
+{
+	this->minute = Minute;
+}
+
+
