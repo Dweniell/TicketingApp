@@ -2,13 +2,30 @@
 #include<string>
 Location::Location() {
 	this->LocName = nullptr;
-	
-
+	this->rooms = nullptr;
+	this->events = nullptr;
+	nrRooms = 0;
+	nrEvents = 0;
 }
-Location::Location(char* name, int Rooms, int viprooms, Room* roomy)
+Location::Location(char* name, Room** rooms,int numeroRooms,Event** events,int numeroEvents)
 {
+	this->LocName = new char[strlen(name) + 1];
+	
+	this->rooms = new Room*[numeroRooms];
+	for (int i = 0; i < numeroRooms; i++) {
+		this->rooms[i] = rooms[i];
+	}
+
+	this->events = new Event * [numeroEvents];
+	for (int i = 0; i < numeroEvents; i++) {
+		this->events[i] = events[i];
+	}
+	this->nrRooms = numeroRooms;
+	this->nrEvents = numeroEvents;
 
 }
+
+
 
 
 
@@ -16,6 +33,17 @@ Location::Location(char* name, int Rooms, int viprooms, Room* roomy)
 
 char* Location::getName() {
 	return this->LocName;
+}
+
+Room** Location::getRooms()
+{
+	return this->rooms;
+}
+
+
+Event** Location::getEvents()
+{
+	return this->events;
 }
 
 
@@ -30,13 +58,50 @@ void Location::setName(char* name) {
 
 }
 
+void Location::setRooms(Room** rooms,int numeroRooms)
+{
+	this->rooms = new Room * [numeroRooms];
+	for (int i = 0; i < numeroRooms; i++) {
+		this->rooms[i] = rooms[i];
 
 
-//////
+	}
+}
 
-void Location::Purchaseseats(int seats,char* type) {
-	
-	
+void Location::setEvents(Event** event,int numeroEvents)
+{
+	this->events = new Event * [numeroEvents];
+	for (int i = 0; i < numeroEvents; i++) {
+		this->events[i] = event[i];
 
+
+	}
+}
+
+void Location::addroom(Room* room,int numeroRooms)
+{
+	Room**temp = new Room*[numeroRooms + 1];
+	for (int i = 0; i < numeroRooms; i++) {
+		temp[i] = rooms[i];
+
+	}
+	temp[numeroRooms] = room;
+	delete[] rooms;
+	nrRooms++;
+	rooms = temp;
+	temp= nullptr;
+
+}
+
+
+void Location::printRooms() {
+	for (int i = 0; i < nrRooms; i++) {
+		std::cout << rooms[i];
+
+	}
+
+}
+void Location::removeRoom(int position)
+{
 
 }
