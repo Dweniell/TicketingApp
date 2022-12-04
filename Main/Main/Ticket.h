@@ -5,8 +5,8 @@
 
 class Ticket {
 private:
-	
-	int nrSeats;
+
+	const int id;
 	Event ev;
 	Seat s;
 	Room room;
@@ -15,10 +15,34 @@ private:
 
 
 public:
-	Ticket();
-	Ticket(int nrseat, Event event, Seat seats,Room room1);
+
+	Ticket() ;
+	Ticket(int nrseat, Event event, Seat seat, Room room1) ;
+	static int getNrTickets() {
+		
+			return NrTickets;
+		
+	};
 	
-	
+	Event getEvent();
+	Seat getSeat();
+	Room getRoom();
+	void setEvent(Event &a);
+	void setRoom(Room &a);
+	void setSeat(Seat &s);
+	char* getEventNames();
+	friend ostream& operator<<(ostream& s, Ticket& a) {
+		s << "Location name: " << a.getEventNames();
+
+
+		return s;
+	}
+	friend istream& operator>>(istream& s, Ticket& b) {
+
+		std::cout <<"Change the ticket's seat";
+		s >>b.s;
+		return s;
+	}
 
 
 };
