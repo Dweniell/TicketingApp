@@ -9,9 +9,7 @@ Seat::Seat() {
 Seat::Seat(int number,int avb) {
 	this->seat_number = number;
 	this->seat_availability = avb;
-
 }
-
 
 
 

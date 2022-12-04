@@ -5,12 +5,11 @@ class Seat {
 private:
 	int seat_number;
 	int seat_availability;
-	
-public:
 
+public:
 	Seat();
 	Seat(int number, int seatAvb);
-
+	
 	int getSeatNumber();
 	int getSeatAvb();
 	void setSeatAvb(int avb);
@@ -23,11 +22,6 @@ public:
 		os << s.getSeatAvb();
 		return os;
 	};
-	friend istream& operator>>(istream& is, Seat& s) {
-
-		std::cout << "You can change the seat to 1 or 0";
-		is >> s.seat_availability;
-		return is;
-	}
+	
 
 };

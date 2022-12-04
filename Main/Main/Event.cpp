@@ -1,6 +1,5 @@
 #include "Event.h"
 #include <string>
-#include <iostream>
 using namespace std;
 Event::Event() {
 	name =nullptr;
@@ -12,10 +11,10 @@ Event::Event() {
 
 }
 
-Event::Event(const char* name, int month, int day, int hour, int minute)
+Event::Event(char* name, int month, int day, int hour, int minute)
 {
 	this->name = new char [strlen(name) + 1];
-	strcpy_s(this->name, strlen(name)+1, name);
+	strcpy_s(this->name, strlen(name), name);
 	this->month = month;
 	this->day = day;
 	this->hour = hour;

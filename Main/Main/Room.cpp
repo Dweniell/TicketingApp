@@ -9,12 +9,12 @@ Room::Room() {
 	Vip = false;
 	rows = 2;
 	cols = 2;
-
+	rooms++;
 }
 
 
 
-Room::Room(int roomID,const char* name, bool vip, int nrRows, int nrCols,Event& event) {
+Room::Room(int roomID,const char* name, bool vip, int nrRows, int nrCols) {
 
 
 	this->roomId = roomID;
@@ -25,20 +25,22 @@ Room::Room(int roomID,const char* name, bool vip, int nrRows, int nrCols,Event& 
 	this->Seats = new Seat **[nrRows];
 
 	for (int a = 0; a < nrRows; a++) {
-		this->Seats[a] = new Seat * [nrCols];
+		this->Seats[a] = new Seat * [nrRows];
 
 	}
 	for (int i = 0; i < nrRows; i++) {
 
 		for (int j = 0; j < nrCols; j++) {
-			Seats[i][j] = new Seat(j,0);
+			this->Seats[i][j] = new Seat(j,0);
 			
 		}
 
 	}
 	this->Vip = vip;
-	
-	this->event = event;
+	if (vip == true) {
+		viprooms++;
+	}
+	rooms++;
 
 }
 
