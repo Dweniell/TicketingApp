@@ -10,24 +10,27 @@ private:
 public:
 	Event();
 	Event(const char* name, int month, int day, int hour, int minute);
+	//get
 	char* getEventname();
 	int getEventmonth();
 	int getEventday();
 	int getEventhour();
 	int getEventminute();
 
-
+	//set
 	void setEventname(char* name);
 	void setEventmonth(int Month);
 	void setEventday(int Day);
 	void setEventhour(int Hour);
 	void setEventminute(int Minute);
 
+
+
 	friend ostream& operator<<(ostream& s, Event& a) {
-		s << "Location name: " << a.name<<"\n";
-		s << "Location date: " << a.month << "." << a.day << " " << a.hour << ":" << a.minute;
+		s << "Event name: " << a.name<<"\n";
+		s << "Event date: " << a.month << "." << a.day << " " << a.hour << ":" << a.minute;
 
-
+		return s;
 	}
 	friend istream& operator>>(istream& s, Event& b) {
 

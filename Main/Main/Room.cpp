@@ -48,7 +48,7 @@ void Room::printRoom() {
 
 	for (int i = 0; i <this->rows ; i++) {
 		for (int j = 0; j <this->cols ; j++) {
-			cout<< *this->Seats[i][j] << " ";
+			cout<< this->Seats[i][j]->getSeatAvb() << " ";
 
 
 		}
@@ -122,6 +122,53 @@ void Room::setcols(int colss)
 {
 	if(colss >2)
 		this->cols = colss;
+}
+
+Seat Room::getSeat(int row, int col)
+{
+
+	
+	return *this->Seats[row][col];
+}
+
+
+// TO DO : FIX THESE ERRORS
+void Room::setseatavb(int row, int col, int avb) 
+{
+//	this->Seats[row][col]->setSeatAvb(avb);
+	//read access violation
+
+
+}
+int Room::getPosRow(int id)
+{
+	return 1;
+
+	/*for (int i = 0; i < this->rows; i++) {
+		for (int j = 0; j < this->cols; j++) {
+			k = *Seats[i][j];
+			if (k.getSeatNumber() == id) {
+				return i;
+			}
+		}
+	}*/
+	//read access violation 
+}
+
+int Room::getPosCol(int id)
+{
+	return 1;
+	/*for (int i = 0; i < this->rows; i++) {
+		for (int j = 0; j < this->cols; j++) {
+			k = *Seats[i][j];
+			if (k.getSeatNumber() == id) {
+				return j;
+			}
+		}
+	}*/
+
+	//read access violation
+
 }
 
 

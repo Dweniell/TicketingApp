@@ -2,18 +2,21 @@
 
 Ticket::Ticket():id(0) {
 	this->ev = Event();
-	this->s = Seat();
+	this->seat = Seat();
 	this->room = Room();
 	NrTickets++;
 }
 
-Ticket::Ticket(int nrseat, Event event, Seat seats, Room room1):id(rand())
+Ticket::Ticket(int nrseat, Event event,Location locat ,Room room1):id(rand())
 {
 	
 	this->ev = event;
-	this->s = seats;
-	this->room = room1;
 
+	this->seat = room1.getSeat(room.getPosRow(nrseat),room.getPosCol(nrseat));
+
+	//this->room.setseatavb(room.getPosRow(nrseat), room.getPosCol(nrseat), 1);
+	this->room = room1;
+	this->loc = locat;
 	NrTickets++;
 }
 
@@ -27,12 +30,17 @@ Event Ticket::getEvent()
 
 Seat Ticket::getSeat()
 {
-	return this->s;
+	return this->seat;
 }
 
 Room Ticket::getRoom()
 {
 	return this->room;
+}
+
+Location Ticket::getLocation()
+{
+	return this->loc;
 }
 
 void Ticket::setEvent(Event &a)
@@ -50,8 +58,13 @@ void Ticket::setRoom(Room& a)
 void Ticket::setSeat(Seat& s)
 {
 	if (s.getSeatAvb() != 1)
-		this->s = s;
+		this->seat = s;
 	
+}
+
+void Ticket::setLocation(Location& l)
+{
+	this->loc = l;
 }
 
 char* Ticket::getEventNames()

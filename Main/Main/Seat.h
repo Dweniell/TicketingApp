@@ -10,9 +10,10 @@ public:
 
 	Seat();
 	Seat(int number, int seatAvb);
-
+	//get
 	int getSeatNumber();
 	int getSeatAvb();
+	//set
 	void setSeatAvb(int avb);
 	void setSeatnumber(int number);
 

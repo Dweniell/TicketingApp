@@ -10,7 +10,7 @@ private:
 public:
 	
 	Location();
-	Location(char* name,Room** rooms,int numeroRooms,Event** events,int numeroEvents);
+	Location(const char* name,Room** rooms,int numeroRooms,Event** events,int numeroEvents);
 	
 //getters
 	char* getName();
@@ -23,15 +23,19 @@ public:
 	void setEvents(Event** event,int numeroEvents);
 
 ////////
-	void addroom(Room* room,int numeroRooms);
+	void addroom(Room* room,int numeroRooms); // fix this
 	void removeRoom(int position);
 	void printRooms();
-
+	void printEvents();
 
 	friend ostream& operator<<(ostream& s, Location& a) {
-		s << "Location name: " << a.LocName;
-
-
+		s << "Location name: " << a.LocName << "\n";
+		s << "The events of this location: "<<"\n";
+		a.printEvents();
+		s << "\n";
+		s << "The rooms of this location: " << "\n";
+		a.printRooms();
+		return s;
 	}
 	friend istream& operator>>(istream& s, Location& b) {
 
