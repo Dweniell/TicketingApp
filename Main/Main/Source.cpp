@@ -37,6 +37,6 @@ int main() {
 	cout << d<< "\n";
 	cout << "LOCATION TEST: " << "\n";
 	cout << le<< "\n";
-
+	
 	return 0;
 }
